@@ -91,9 +91,9 @@ createEmptyDirectory $PRODUCTION_LOCATION
 
 # TODO: find a way to resolved these on non ubuntu linux machines
 
-USERNAME='username'
-PUBLICIP='public.ip.address'
-REPONAME='reponame'
+USERNAME=$(whoami)
+PUBLICIP=$(dig +short myip.opendns.com @resolver1.opendns.com)
+REPONAME='production'
 #all done
 echo "All Done."
 echo ""
