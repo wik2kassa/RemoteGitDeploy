@@ -103,12 +103,13 @@ createEmptyDirectory $PRODUCTION_LOCATION
 
 USERNAME='username'
 PUBLICIP='public.ip.address'
+REPONAME='reponame'
 #all done
 echo "All Done."
 echo ""
 echo "Use the follwing commands on your local machine to start using your repo."
 echo ""
-echo ""
+echo ""=
 echo "git init
-git remote add reponame ssh://$USERNAME@$PUBLICIP$ABSOLUTE_REPO_LOCATION
-git push ec2 +master:refs/heads/master"
+git remote add $REPONAME ssh://$USERNAME@$PUBLICIP$ABSOLUTE_REPO_LOCATION
+git push $REPONAME +master:refs/heads/master"
