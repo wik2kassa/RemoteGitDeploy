@@ -17,6 +17,7 @@
 #  Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston,
 #  MA 02110-1301, USA.
 
+echo "RemoteGit v0.1b"
 if [ $# -eq 1 ] && [ $1 == "install" ]; then
 	chmod +x $0
 	cp $0 "/bin/$0"
@@ -67,6 +68,7 @@ createEmptyDirectory $REPO_LOCATION
 cd $REPO_LOCATION
 git init --bare
 
+ABSOLUTE_REPO_LOCATION=$(pwd)
 # add the post recieve hook to the repo
 
 echo "#!/bin/bash
@@ -96,3 +98,13 @@ chmod +x hooks/post-recieve
 
 cd $WORKING_DIRECTORY
 createEmptyDirectory $PRODUCTION_LOCATION
+
+# TODO: find a way to resolved these on non ubuntu linux machines
+
+USERNAME='username'
+PUBLICIP='public.ip.address'
+#all done
+echo "Use the follwing commands on your local machine to start using your repo."
+echo "git init
+git remote add reponame ssh://$USERNAME@$PUBLICIP$ABSOLUTE_REPO_LOCATION
+git push ec2 +master:refs/heads/master"
