@@ -73,7 +73,7 @@ git init --bare
 ABSOLUTE_REPO_LOCATION=$(pwd)
 cd $WORKING_DIRECTORY
 # add the post recieve hook to the repo
-
+cd $REPO_LOCATION
 echo "#!/bin/sh
 GIT_WORK_TREE=\$PRODUCTION_LOCATION
 export GIT_WORK_TREE
