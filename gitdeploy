@@ -71,34 +71,22 @@ cd $REPO_LOCATION
 git init --bare
 
 ABSOLUTE_REPO_LOCATION=$(pwd)
+cd $WORKING_DIRECTORY
 # add the post recieve hook to the repo
 
-echo "#!/bin/bash
-
-while read oldrev newrev ref
-do
-  branch=\`echo \$ref | cut -d/ -f3\`
-  if [ \"production\" == \"\$branch\" -o \"master\" == \"\$branch\" ]; then
-    
-    git --work-tree=$PRODUCTION_LOCATION checkout -f $branch
-    
-    echo 'Changes pushed to PROD.'
-  fi
-
-  if [ \"smoke\" == \"\$branch\" ]; then
-    
-    git --work-tree=$PRODUCTION_LOCATION/smoke/ checkout -f $branch
-    
-    echo 'Changes pushed to PROD smoke box.'
-  fi
-done" > hooks/post-recieve
+echo "#!/bin/sh
+GIT_WORK_TREE=\$PRODUCTION_LOCATION
+export GIT_WORK_TREE
+git checkout -f
+echo 'Files available at \$PRODUCTION_LOCATION'
+" > hooks/post-recieve
 # make the hook executable
 
 chmod +x hooks/post-recieve
 
 # create the folder in the production location
 
-cd $WORKING_DIRECTORY
+
 createEmptyDirectory $PRODUCTION_LOCATION
 
 # TODO: find a way to resolved these on non ubuntu linux machines
