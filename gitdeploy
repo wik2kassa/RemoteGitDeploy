@@ -77,7 +77,7 @@ echo "#!/bin/bash
 
 while read oldrev newrev ref
 do
-  branch=`echo $ref | cut -d/ -f3`
+  branch=`echo \$ref | cut -d/ -f3`
   if [ "production" == "\$branch" -o "master" == "\$branch" ]; then
     
     git --work-tree=$PRODUCTION_LOCATION checkout -f $branch
