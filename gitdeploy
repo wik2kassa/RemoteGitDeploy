@@ -78,14 +78,14 @@ echo "#!/bin/bash
 while read oldrev newrev ref
 do
   branch=\`echo \$ref | cut -d/ -f3\`
-  if [ "production" == "\$branch" -o "master" == "\$branch" ]; then
+  if [ \"production\" == \"\$branch\" -o \"master\" == \"\$branch\" ]; then
     
     git --work-tree=$PRODUCTION_LOCATION checkout -f $branch
     
     echo 'Changes pushed to PROD.'
   fi
 
-  if [ "smoke" == "\$branch" ]; then
+  if [ \"smoke\" == \"\$branch\" ]; then
     
     git --work-tree=$PRODUCTION_LOCATION/smoke/ checkout -f $branch
     
