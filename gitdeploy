@@ -79,7 +79,7 @@ GIT_WORK_TREE=$PRODUCTION_LOCATION
 export GIT_WORK_TREE
 git checkout -f
 echo 'Files available at $PRODUCTION_LOCATION'
-" > hooks/post-recieve
+" > hooks/post-receive
 # make the hook executable
 
 chmod +x hooks/post-recieve
