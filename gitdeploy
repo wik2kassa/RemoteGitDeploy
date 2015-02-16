@@ -75,10 +75,10 @@ cd $WORKING_DIRECTORY
 # add the post recieve hook to the repo
 cd $REPO_LOCATION
 echo "#!/bin/sh
-GIT_WORK_TREE=\$PRODUCTION_LOCATION
+GIT_WORK_TREE=$PRODUCTION_LOCATION
 export GIT_WORK_TREE
 git checkout -f
-echo 'Files available at \$PRODUCTION_LOCATION'
+echo 'Files available at $PRODUCTION_LOCATION'
 " > hooks/post-recieve
 # make the hook executable
 
