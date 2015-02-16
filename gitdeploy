@@ -82,7 +82,7 @@ echo 'Files available at $PRODUCTION_LOCATION'
 " > hooks/post-receive
 # make the hook executable
 
-chmod +x hooks/post-recieve
+chmod +x hooks/post-receive
 
 # create the folder in the production location
 cd $WORKING_DIRECTORY
