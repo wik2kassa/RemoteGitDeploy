@@ -92,7 +92,8 @@ createEmptyDirectory $PRODUCTION_LOCATION
 # TODO: find a way to resolved these on non ubuntu linux machines
 
 USERNAME=$(whoami)
-PUBLICIP=$(dig +short myip.opendns.com @resolver1.opendns.com)
+# PUBLICIP=$(dig +short myip.opendns.com @resolver1.opendns.com)
+PUBLICIP=$(curl -s checkip.dyndns.org | sed -e 's/.*Current IP Address: //' -e 's/<.*$//'  ) # switched to curl because it's available on many servers
 REPONAME='production'
 #all done
 echo "All Done."
