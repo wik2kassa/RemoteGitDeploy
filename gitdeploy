@@ -85,7 +85,7 @@ echo 'Files available at \$PRODUCTION_LOCATION'
 chmod +x hooks/post-recieve
 
 # create the folder in the production location
-
+cd $WORKING_DIRECTORY
 
 createEmptyDirectory $PRODUCTION_LOCATION
 
