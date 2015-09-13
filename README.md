@@ -43,7 +43,7 @@ After step 3 is done gitDeploy will give you the list of commands to execute on 
 <br>
 Goto the folder of your git repository or create a new git repository using git init. And add your new repository as a remote
 
-    git remote add production ssh://ubuntu@<host ip/ host domain>/<remote location>
+    git remote add production ssh://<username>@<host ip/ host domain>/<remote location>
 
 in our example this would be something like this:
 
