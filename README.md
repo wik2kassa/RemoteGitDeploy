@@ -62,6 +62,7 @@ in our example this would be something like this:
 
 ##### Thanks 
 * Jeff Heoff's great tutorial on the process of using git as a deployment tool. <a href='http://www.jeffhoefs.com/2012/09/setup-git-deploy-for-aws-ec2-ubuntu-instance/'>Check it out here</a>.
+
 ##### Comments, bug-fixes and feedback are more than appreciated.
 
 
